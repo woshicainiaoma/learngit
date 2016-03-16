@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="CHRecommendCategoryCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-FY-NtN">
+                        <rect key="frame" x="0.0" y="-11" width="320" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.05163053067104495" blue="0.19912297742401386" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hw2-k0-eqv"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anj-Ps-8Qr">
+                        <rect key="frame" x="0.0" y="0.0" width="5" height="44"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.051630530670000001" blue="0.19912297740000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="2" id="bIn-EJ-bec"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="ACM-FY-NtN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4qp-MS-ASL"/>
+                    <constraint firstAttribute="trailing" secondItem="ACM-FY-NtN" secondAttribute="trailing" id="Uy8-CB-2DD"/>
+                    <constraint firstItem="anj-Ps-8Qr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ajS-HU-5Dg"/>
+                    <constraint firstItem="anj-Ps-8Qr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gpj-t3-kvO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="selectedIndicator" destination="anj-Ps-8Qr" id="g34-jc-9Jt"/>
+            </connections>
+            <point key="canvasLocation" x="413" y="323"/>
+        </tableViewCell>
+    </objects>
+</document>
