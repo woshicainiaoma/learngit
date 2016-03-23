@@ -143,9 +143,9 @@ static NSString * const CHUserId = @"user";
 
        [rc.users removeAllObjects];
         
-         CHLog(@"%@", users);
+        // CHLog(@"%@", users);
         [rc.users addObjectsFromArray:users];
-       CHLog(@"%@", rc.users);
+       //CHLog(@"%@", rc.users);
         
         rc.total = [responseObject[@"total"] integerValue];
         

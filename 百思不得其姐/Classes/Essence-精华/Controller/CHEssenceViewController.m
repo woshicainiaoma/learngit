@@ -8,11 +8,7 @@
 
 #import "CHEssenceViewController.h"
 #import "CHRecommendTagsViewController.h"
-#import "CHAllTableViewController.h"
-#import "CHVideoTableViewController.h"
-#import "CHVoiceTableViewController.h"
-#import "CHWordTableViewController.h"
-#import "CHPictureTableViewController.h"
+#import "CHTopicViewController.h"
 @interface CHEssenceViewController () <UIScrollViewAccessibilityDelegate>
 /** 标签栏底部的红色指示器 */
 @property (nonatomic, weak) UIView *indicatorView;
@@ -49,19 +45,29 @@
 
 - (void)setupChildVces
 {
-    CHAllTableViewController *all = [[CHAllTableViewController alloc] init];
+    CHTopicViewController *all = [[CHTopicViewController alloc] init];
+    all.title = @"全部";
+    all.type = CHTopicTypeAll;
     [self addChildViewController:all];
     
-    CHVideoTableViewController *video = [[CHVideoTableViewController alloc] init];
+    CHTopicViewController *video = [[CHTopicViewController alloc] init];
+    video.title = @"视频";
+    video.type = CHTopicTypeVideo;
     [self addChildViewController:video];
     
-    CHVoiceTableViewController *voice = [[CHVoiceTableViewController alloc] init];
+    CHTopicViewController *voice = [[CHTopicViewController alloc] init];
+    voice.title = @"声音";
+    voice.type = CHTopicTypeVoice;
     [self addChildViewController:voice];
     
-    CHWordTableViewController *word = [[CHWordTableViewController alloc] init];
+    CHTopicViewController *word = [[CHTopicViewController alloc] init];
+    word.title = @"段子";
+    word.type = CHTopicTypeWord;
     [self addChildViewController:word];
     
-    CHPictureTableViewController *picture = [[CHPictureTableViewController alloc] init];
+    CHTopicViewController *picture = [[CHTopicViewController alloc] init];
+    picture.title = @"图片";
+    picture.type = CHTopicTypePicture;
     [self addChildViewController:picture];
 }
 

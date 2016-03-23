@@ -12,6 +12,7 @@
 #import "UIView+CHExtension.h"
 #import "UIBarButtonItem+CHExtension.h"
 #import "CHConst.h"
+#import "NSDate+CHExtension.h"
 
 #ifdef DEBUG
 #define CHLog(...) NSLog(__VA_ARGS__)

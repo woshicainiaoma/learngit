@@ -1,19 +1,22 @@
 //
-//  CHWordTableViewController.m
+//  CHTopicViewController.m
 //  百思不得其姐
 //
-//  Created by 陈欢 on 16/2/26.
+//  Created by 陈欢 on 16/3/18.
 //  Copyright © 2016年 陈欢. All rights reserved.
 //
 
-#import "CHWordTableViewController.h"
+#import "CHTopicViewController.h"
+
 #import "AFNetworking.h"
 #import "MJExtension.h"
 #import "MJRefresh.h"
 #import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
 #import "CHTopic.h"
-@interface CHWordTableViewController ()
+#import "CHTopicCell.h"
+#import "CHEssenceViewController.h"
+@interface CHTopicViewController ()
 
 @property (nonatomic, strong) NSMutableArray *topics;
 
@@ -26,7 +29,7 @@
 
 @end
 
-@implementation CHWordTableViewController
+@implementation CHTopicViewController
 - (NSMutableArray *)topics
 {
     if (!_topics) {
@@ -44,6 +47,7 @@
     [self setupRefresh];
     
 }
+static NSString * const CHTopicCellId = @"topic";
 - (void)setTabbel
 {
     CGFloat bottom = self.tabBarController.tabBar.height;
@@ -52,6 +56,13 @@
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    
+    // 注册
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CHTopicCell class]) bundle:nil] forCellReuseIdentifier:CHTopicCellId];
 }
 
 - (void)setupRefresh
@@ -62,7 +73,7 @@
     
     [self.tableView.mj_header beginRefreshing];
     
-    self.tableView.mj_footer = [MJRefreshBackFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 
 
@@ -74,13 +85,18 @@
     
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
+
+
     self.params =params;
     
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-    
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (self.params != params) return ;
+        
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        
         self.topics = [CHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [self.tableView reloadData];
         
@@ -107,28 +123,29 @@
     
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"29";
+    params[@"type"] = @(self.type);
+    NSInteger page = self.page + 1;
     params[@"page"] = @(self.page);
     params[@"maxtime"] = self.maxtime;
     self.params = params;
     
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-    
+        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        if (self.params != params)
-            return ;
+        if (self.params != params) return ;
+        
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
         NSArray *newTopics = [CHTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         [self.topics addObjectsFromArray:newTopics];
         
-        [self reloadInputViews];
+        [self.tableView reloadData];
         
         [self.tableView.mj_footer endRefreshing];
         
-        
+        self.page = page;
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -151,19 +168,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
+    //    static NSString *ID = @"cell";
+    //
+    //    UITableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:ID];
+    //    if (cell == nil) {
+    //        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    //    }
+    //
+    //    CHTopic *topic = self.topics[indexPath.row];
+    //    cell.textLabel.text = topic.name;
+    //    cell.detailTextLabel.text = topic.text;
+    //
+    //    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    //
+    CHTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:CHTopicCellId];
     
-    UITableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
-    CHTopic *topic = self.topics[indexPath.row];
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
-    
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
     
@@ -175,29 +195,12 @@
 //}
 //
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CHTopic *topic = self.topics[indexPath.row];
+    
+    return topic.cellHeight;
+}
 
 
 @end

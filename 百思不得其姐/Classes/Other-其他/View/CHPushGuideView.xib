@@ -34,9 +34,14 @@
                         <constraint firstAttribute="height" constant="90" id="bj9-2x-nsi"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAo-nB-EBs">
-                    <rect key="frame" x="240" y="412" width="109" height="45"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAo-nB-EBs">
+                    <rect key="frame" x="235" y="413" width="103" height="44"/>
                     <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="GQ5-Ru-Vd3"/>
+                        <constraint firstAttribute="width" constant="103" id="wED-d5-zau"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <connections>
                         <action selector="close" destination="iN0-l3-epB" eventType="touchUpInside" id="UHl-G7-lxW"/>
                     </connections>
@@ -47,12 +52,12 @@
             <constraints>
                 <constraint firstItem="fdP-gf-4Lr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="C80-rq-auM"/>
                 <constraint firstItem="fdP-gf-4Lr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IWQ-2S-3bP"/>
+                <constraint firstItem="SAo-nB-EBs" firstAttribute="leading" secondItem="NTe-1x-VN0" secondAttribute="leading" id="KQG-Qt-RxB"/>
                 <constraint firstItem="fdP-gf-4Lr" firstAttribute="top" secondItem="JY7-zb-eav" secondAttribute="bottom" constant="40" id="Rs0-LG-umw"/>
                 <constraint firstItem="NTe-1x-VN0" firstAttribute="top" secondItem="fdP-gf-4Lr" secondAttribute="bottom" constant="5" id="XWg-mF-wgv"/>
-                <constraint firstItem="SAo-nB-EBs" firstAttribute="bottom" secondItem="NTe-1x-VN0" secondAttribute="bottom" id="YMW-8x-hU8"/>
                 <constraint firstItem="NTe-1x-VN0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="clj-0U-cP2"/>
                 <constraint firstItem="JY7-zb-eav" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dQ9-ku-Zhz"/>
-                <constraint firstItem="SAo-nB-EBs" firstAttribute="leading" secondItem="NTe-1x-VN0" secondAttribute="leading" id="ftj-r7-gmU"/>
+                <constraint firstItem="SAo-nB-EBs" firstAttribute="bottom" secondItem="NTe-1x-VN0" secondAttribute="bottom" id="zwX-Vl-bXO"/>
             </constraints>
         </view>
     </objects>

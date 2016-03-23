@@ -27,4 +27,28 @@
 @property (nonatomic, assign) NSInteger repost;
 
 @property (nonatomic, assign) NSInteger comment;
+
+@property (nonatomic, assign, getter=isSina_v) BOOL Sina_v;
+
+@property (nonatomic, assign) CGFloat width;
+
+@property (nonatomic, assign) CGFloat height;
+
+@property (nonatomic, copy) NSString *small_image;
+
+@property (nonatomic, copy) NSString *middle_image;
+
+@property (nonatomic, copy) NSString *large_image;
+
+@property (nonatomic, assign) CHTopicType type;
+
+
+@property (nonatomic, assign) CGFloat pictureProgress;
+
+
+@property (nonatomic, assign, readonly) CGFloat cellHeight;
+
+@property (nonatomic, assign, readonly) CGRect pictureF;
+
+@property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
 @end
