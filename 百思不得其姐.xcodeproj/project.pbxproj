@@ -17,11 +17,11 @@
 		182F5D6B1C76E7F50058A9B6 /* CHFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F5D691C76E7F50058A9B6 /* CHFriendTrendsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		185B364C1CA172A4003AC929 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B36471CA172A4003AC929 /* DACircularProgressView.m */; settings = {ASSET_TAGS = (); }; };
 		185B364D1CA172A4003AC929 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B36491CA172A4003AC929 /* DALabeledCircularProgressView.m */; settings = {ASSET_TAGS = (); }; };
-		185B364E1CA172A4003AC929 /* LICENSE.md in Sources */ = {isa = PBXBuildFile; fileRef = 185B364A1CA172A4003AC929 /* LICENSE.md */; settings = {ASSET_TAGS = (); }; };
-		185B364F1CA172A4003AC929 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 185B364B1CA172A4003AC929 /* README.md */; settings = {ASSET_TAGS = (); }; };
 		185B36521CA178B7003AC929 /* CHProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B36511CA178B7003AC929 /* CHProgressView.m */; settings = {ASSET_TAGS = (); }; };
 		185B36561CA25754003AC929 /* CHShowPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B36541CA25754003AC929 /* CHShowPictureViewController.m */; settings = {ASSET_TAGS = (); }; };
 		185B36571CA25754003AC929 /* CHShowPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185B36551CA25754003AC929 /* CHShowPictureViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		185B374A1CA56C58003AC929 /* CHSPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B37481CA56C58003AC929 /* CHSPublishViewController.m */; settings = {ASSET_TAGS = (); }; };
+		185B374B1CA56C58003AC929 /* CHSPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185B37491CA56C58003AC929 /* CHSPublishViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		189A3FC21C75E65600666E11 /* ______.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 189A3FC01C75E65600666E11 /* ______.xcdatamodeld */; };
 		189A3FC41C75E65600666E11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189A3FC31C75E65600666E11 /* Assets.xcassets */; };
 		189A3FE61C75E9AC00666E11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 189A3FE11C75E9AC00666E11 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
@@ -109,6 +109,10 @@
 		18A1F41C1C80042D00FD4BB9 /* CHRecommendTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1F41B1C80042D00FD4BB9 /* CHRecommendTagsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		18A1F41F1C801FF000FD4BB9 /* CHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1F41E1C801FF000FD4BB9 /* CHTopic.m */; settings = {ASSET_TAGS = (); }; };
 		18A1F4221C80399C00FD4BB9 /* CHConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A1F4211C80399C00FD4BB9 /* CHConst.m */; settings = {ASSET_TAGS = (); }; };
+		18EADD8B1CA5743500B51AAE /* CHTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EADD8A1CA5743500B51AAE /* CHTopicVoiceView.m */; settings = {ASSET_TAGS = (); }; };
+		18EADD8D1CA5744500B51AAE /* CHTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EADD8C1CA5744500B51AAE /* CHTopicVoiceView.xib */; settings = {ASSET_TAGS = (); }; };
+		18EADD901CA582BA00B51AAE /* CHTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EADD8F1CA582BA00B51AAE /* CHTopicVideoView.m */; settings = {ASSET_TAGS = (); }; };
+		18EADD921CA582F000B51AAE /* CHTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EADD911CA582F000B51AAE /* CHTopicVideoView.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,13 +133,14 @@
 		185B36471CA172A4003AC929 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 		185B36481CA172A4003AC929 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
 		185B36491CA172A4003AC929 /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
-		185B364A1CA172A4003AC929 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		185B364B1CA172A4003AC929 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		185B36501CA178B7003AC929 /* CHProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHProgressView.h; sourceTree = "<group>"; };
 		185B36511CA178B7003AC929 /* CHProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHProgressView.m; sourceTree = "<group>"; };
 		185B36531CA25754003AC929 /* CHShowPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHShowPictureViewController.h; sourceTree = "<group>"; };
 		185B36541CA25754003AC929 /* CHShowPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHShowPictureViewController.m; sourceTree = "<group>"; };
 		185B36551CA25754003AC929 /* CHShowPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHShowPictureViewController.xib; sourceTree = "<group>"; };
+		185B37471CA56C58003AC929 /* CHSPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSPublishViewController.h; sourceTree = "<group>"; };
+		185B37481CA56C58003AC929 /* CHSPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSPublishViewController.m; sourceTree = "<group>"; };
+		185B37491CA56C58003AC929 /* CHSPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHSPublishViewController.xib; sourceTree = "<group>"; };
 		189A3FB11C75E65600666E11 /* 百思不得其姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得其姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		189A3FC11C75E65600666E11 /* ______.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "______.xcdatamodel"; sourceTree = "<group>"; };
 		189A3FC31C75E65600666E11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -307,6 +312,12 @@
 		18A1F41E1C801FF000FD4BB9 /* CHTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopic.m; sourceTree = "<group>"; };
 		18A1F4201C80399C00FD4BB9 /* CHConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHConst.h; sourceTree = "<group>"; };
 		18A1F4211C80399C00FD4BB9 /* CHConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHConst.m; sourceTree = "<group>"; };
+		18EADD891CA5743500B51AAE /* CHTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopicVoiceView.h; sourceTree = "<group>"; };
+		18EADD8A1CA5743500B51AAE /* CHTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopicVoiceView.m; sourceTree = "<group>"; };
+		18EADD8C1CA5744500B51AAE /* CHTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHTopicVoiceView.xib; sourceTree = "<group>"; };
+		18EADD8E1CA582BA00B51AAE /* CHTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopicVideoView.h; sourceTree = "<group>"; };
+		18EADD8F1CA582BA00B51AAE /* CHTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopicVideoView.m; sourceTree = "<group>"; };
+		18EADD911CA582F000B51AAE /* CHTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHTopicVideoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,8 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				185B36451CA172A4003AC929 /* DACircularProgress */,
-				185B364A1CA172A4003AC929 /* LICENSE.md */,
-				185B364B1CA172A4003AC929 /* README.md */,
 			);
 			path = DACircularProgress;
 			sourceTree = "<group>";
@@ -440,6 +449,12 @@
 				180D96741CA148B60008BB19 /* CHTopicPictureView.xib */,
 				185B36501CA178B7003AC929 /* CHProgressView.h */,
 				185B36511CA178B7003AC929 /* CHProgressView.m */,
+				18EADD891CA5743500B51AAE /* CHTopicVoiceView.h */,
+				18EADD8A1CA5743500B51AAE /* CHTopicVoiceView.m */,
+				18EADD8C1CA5744500B51AAE /* CHTopicVoiceView.xib */,
+				18EADD8E1CA582BA00B51AAE /* CHTopicVideoView.h */,
+				18EADD8F1CA582BA00B51AAE /* CHTopicVideoView.m */,
+				18EADD911CA582F000B51AAE /* CHTopicVideoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -587,6 +602,9 @@
 				189A3FF81C75F29500666E11 /* CHNavigationController.m */,
 				189A400C1C76B77400666E11 /* CHTabBarViewController.h */,
 				189A400D1C76B77400666E11 /* CHTabBarViewController.m */,
+				185B37471CA56C58003AC929 /* CHSPublishViewController.h */,
+				185B37481CA56C58003AC929 /* CHSPublishViewController.m */,
+				185B37491CA56C58003AC929 /* CHSPublishViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -893,14 +911,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A1F3F41C7B554500FD4BB9 /* CHRecommendTagCell.xib in Resources */,
+				18EADD921CA582F000B51AAE /* CHTopicVideoView.xib in Resources */,
 				182F5D6B1C76E7F50058A9B6 /* CHFriendTrendsViewController.xib in Resources */,
 				18A1F3361C7ADD6100FD4BB9 /* CHRecommendUserCell.xib in Resources */,
 				18A1F24B1C78976F00FD4BB9 /* SVProgressHUD.bundle in Resources */,
 				180D96751CA148B60008BB19 /* CHTopicPictureView.xib in Resources */,
 				18A1F2891C7898DD00FD4BB9 /* MJRefresh.bundle in Resources */,
+				18EADD8D1CA5744500B51AAE /* CHTopicVoiceView.xib in Resources */,
 				185B36571CA25754003AC929 /* CHShowPictureViewController.xib in Resources */,
 				18A1F32E1C7ABD4800FD4BB9 /* CHRecommendCategoryCell.xib in Resources */,
 				18A1F40A1C7D9E6400FD4BB9 /* CHPushGuideView.xib in Resources */,
+				185B374B1CA56C58003AC929 /* CHSPublishViewController.xib in Resources */,
 				189A3FC41C75E65600666E11 /* Assets.xcassets in Resources */,
 				18A1F3261C7ABA0A00FD4BB9 /* CHRecommendViewController.xib in Resources */,
 				18A1F3FF1C7D6B2400FD4BB9 /* CHLoginRegisterViewController.xib in Resources */,
@@ -924,6 +945,7 @@
 				189A3FE61C75E9AC00666E11 /* AppDelegate.m in Sources */,
 				18A1F2841C7898DD00FD4BB9 /* MJRefreshBackNormalFooter.m in Sources */,
 				18A1F2871C7898DD00FD4BB9 /* MJRefreshNormalHeader.m in Sources */,
+				185B374A1CA56C58003AC929 /* CHSPublishViewController.m in Sources */,
 				18A1F41C1C80042D00FD4BB9 /* CHRecommendTagsViewController.m in Sources */,
 				18A1F3291C7ABBE200FD4BB9 /* CHRecommendCategory.m in Sources */,
 				18A1F4021C7D82A900FD4BB9 /* CHVerticalButton.m in Sources */,
@@ -937,6 +959,7 @@
 				185B364D1CA172A4003AC929 /* DALabeledCircularProgressView.m in Sources */,
 				189A3FE71C75E9AC00666E11 /* main.m in Sources */,
 				18A1F41F1C801FF000FD4BB9 /* CHTopic.m in Sources */,
+				18EADD901CA582BA00B51AAE /* CHTopicVideoView.m in Sources */,
 				18A1F2411C78976F00FD4BB9 /* SDWebImageManager.m in Sources */,
 				18A1F3FE1C7D6B2400FD4BB9 /* CHLoginRegisterViewController.m in Sources */,
 				18A1F3201C78990400FD4BB9 /* NSObject+MJProperty.m in Sources */,
@@ -947,17 +970,16 @@
 				189A400E1C76B77400666E11 /* CHTabBarViewController.m in Sources */,
 				18A1F2421C78976F00FD4BB9 /* SDWebImagePrefetcher.m in Sources */,
 				18A1F2861C7898DD00FD4BB9 /* MJRefreshGifHeader.m in Sources */,
-				185B364E1CA172A4003AC929 /* LICENSE.md in Sources */,
 				18A1F31E1C78990400FD4BB9 /* NSObject+MJCoding.m in Sources */,
 				18A1F2481C78976F00FD4BB9 /* UIImageView+WebCache.m in Sources */,
 				18A1F2821C7898DD00FD4BB9 /* MJRefreshAutoStateFooter.m in Sources */,
 				18A1F32D1C7ABD4800FD4BB9 /* CHRecommendCategoryCell.m in Sources */,
 				18A1F2371C78976F00FD4BB9 /* AFURLRequestSerialization.m in Sources */,
+				18EADD8B1CA5743500B51AAE /* CHTopicVoiceView.m in Sources */,
 				189A40081C76B5F400666E11 /* CHMeViewController.m in Sources */,
 				18A1F2391C78976F00FD4BB9 /* AFURLSessionManager.m in Sources */,
 				18A1F27E1C7898DD00FD4BB9 /* MJRefreshFooter.m in Sources */,
 				18A1F2441C78976F00FD4BB9 /* UIImage+GIF.m in Sources */,
-				185B364F1CA172A4003AC929 /* README.md in Sources */,
 				18A1F2461C78976F00FD4BB9 /* UIImage+WebP.m in Sources */,
 				18A1F3F71C7B5CD100FD4BB9 /* CHRecommendTag.m in Sources */,
 				18A1F31F1C78990400FD4BB9 /* NSObject+MJKeyValue.m in Sources */,

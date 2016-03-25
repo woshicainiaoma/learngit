@@ -42,6 +42,11 @@
 
 @property (nonatomic, assign) CHTopicType type;
 
+@property (nonatomic, assign) NSInteger voicetime;
+
+@property (nonatomic, assign) NSInteger videotime;
+
+@property (nonatomic, assign) NSInteger playcount;
 
 @property (nonatomic, assign) CGFloat pictureProgress;
 
@@ -51,4 +56,8 @@
 @property (nonatomic, assign, readonly) CGRect pictureF;
 
 @property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
+
+@property (nonatomic, assign, readonly) CGRect voiceF;
+
+@property (nonatomic, assign, readonly) CGRect videoF;
 @end

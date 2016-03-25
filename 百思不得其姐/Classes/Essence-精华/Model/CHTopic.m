@@ -88,7 +88,24 @@
             _cellHeight += pictureH +CHTopicCellMargin;
             
         }else if (self.type == CHTopicTypeVoice){
+            CGFloat voiceX = CHTopicCellMargin;
+            CGFloat voiceY = CHTopicCellTextY + textH + CHTopicCellMargin;
+            CGFloat voiceW = maxSize.width;
+            CGFloat voiceH = voiceW * self.height / self.width;
+            _voiceF = CGRectMake(voiceX, voiceY, voiceW, voiceH);
             
+            _cellHeight += voiceH + CHTopicCellMargin;
+            
+        } else if (self.type == CHTopicTypeVideo) {
+            
+            CGFloat videoX = CHTopicCellMargin;
+            CGFloat videoY = CHTopicCellTextY + textH + CHTopicCellMargin;
+            CGFloat videoW = maxSize.width;
+            CGFloat videoH = videoW * self.height / self.width;
+            _videoF = CGRectMake(videoX, videoY, videoW, videoH);
+            
+            _cellHeight += videoH + CHTopicCellMargin;
+
             
         }
         

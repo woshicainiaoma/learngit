@@ -8,6 +8,7 @@
 
 #import "CHPushGuideView.h"
 
+
 @implementation CHPushGuideView
 
 + (void)show
@@ -34,6 +35,7 @@
 - (IBAction)close {
     
     [self removeFromSuperview];
+    
 }
 
 + (instancetype)guideView
