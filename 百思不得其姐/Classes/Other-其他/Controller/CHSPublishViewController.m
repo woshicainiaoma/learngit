@@ -8,7 +8,7 @@
 
 #import "CHSPublishViewController.h"
 #import "CHVerticalButton.h"
-
+#import <POP.h>
 
 
 @interface CHSPublishViewController ()
@@ -20,13 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //self.view.userInteractionEnabled = NO;
+    self.view.userInteractionEnabled = NO;
     
-    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
     
-    sloganView.y = CHScreenH * 0.2;
-    sloganView.centerX = CHScreenW * 0.5;
-    [self.view addSubview:sloganView];
     
     NSArray *images = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
     NSArray *titles = @[@"发视频", @"发图片", @"发段子", @"发声音", @"审帖", @"离线下载"];
@@ -50,22 +46,89 @@
         button.height = buttonH;
         int row = i / maxCols;
         int col = i % maxCols;
-        button.x = buttonStartX + col * (xMargin + buttonW);
-        button.y = buttonStartY + row * buttonH;
+        CGFloat buttonX = buttonStartX + col * (xMargin + buttonW) ;
+        CGFloat buttonEndY = buttonStartY + row * buttonH;
+        CGFloat buttonBeginY = buttonEndY - CHScreenH ;
         
+        POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
+        anim.fromValue = [NSValue valueWithCGRect:CGRectMake(buttonX, buttonBeginY, buttonW, buttonH)];
         
-        
-        
+        anim.toValue = [NSValue valueWithCGRect:CGRectMake(buttonX, buttonEndY, buttonW, buttonH)];
+        anim.springBounciness = 10;
+        anim.springSpeed = 10;
+        anim.beginTime = CACurrentMediaTime() + 0.1 * i;
+        [button pop_addAnimation:anim forKey:nil];
         
         
         [self.view addSubview:button];
     }
+    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
+    [self.view addSubview:sloganView];
+    
+    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+    CGFloat centerX = CHScreenW * 0.5;
+    CGFloat centerEndY = CHScreenH * 0.2;
+    CGFloat centerBeginY = centerEndY - CHScreenH ;
+    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerBeginY)];
+    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerEndY)];
+    anim.beginTime = CACurrentMediaTime() + images.count * 0.1;
+    anim.springBounciness = 10;
+    anim.springSpeed = 10;
+    [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+        
+        self.view.userInteractionEnabled = YES;
+    }];
+    [sloganView pop_addAnimation:anim forKey:nil];
 }
 
 - (IBAction)cancel {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self cancelWithCompletionBlock:nil];
+
     
     
 }
+
+- (void)buttonClick:(UIButton *)button
+{
+    [self cancelWithCompletionBlock:^{
+        if (button.tag == 0) {
+            CHLog(@"发视频");
+        } else if (button.tag == 1) {
+            CHLog(@"发图片");
+        }
+    }];
+}
+
+
+- (void)cancelWithCompletionBlock:(void (^)())completionBlock
+{
+
+    self.view.userInteractionEnabled = NO;
+    
+    int beginIndex = 2;
+    
+    for (int i = beginIndex; i<self.view.subviews.count; i++) {
+        UIView *subview = self.view.subviews[i];
+        
+        
+        POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
+        CGFloat centerY = subview.centerY + CHScreenH;
+        
+        anim.toValue = [NSValue valueWithCGPoint:CGPointMake(subview.centerX, centerY)];
+        anim.beginTime = CACurrentMediaTime() + (i - beginIndex) * 0.1;
+        [subview pop_addAnimation:anim forKey:nil];
+        
+        
+        if (i == self.view.subviews.count - 1) {
+            [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
+                [self dismissViewControllerAnimated:NO completion:nil];
+                
+               
+                !completionBlock ? : completionBlock();
+            }];
+        }
+    }
+}
+
 
 @end

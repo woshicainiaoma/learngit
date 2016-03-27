@@ -21,6 +21,7 @@
     // 设置导航栏右边的按钮
     UIBarButtonItem *settingItem = [UIBarButtonItem itemWithImage:@"mine-setting-icon" highImage:@"mine-setting-icon-click" target:self action:@selector(settingClick)];
     UIBarButtonItem *moonItem = [UIBarButtonItem itemWithImage:@"mine-moon-icon" highImage:@"mine-moon-icon-click" target:self action:@selector(moonClick)];
+    
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
     
     // 设置背景色
