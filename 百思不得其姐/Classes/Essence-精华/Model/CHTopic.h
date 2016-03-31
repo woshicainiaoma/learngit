@@ -50,6 +50,8 @@
 
 @property (nonatomic, assign) CGFloat pictureProgress;
 
+@property (nonatomic, strong) NSArray *top_cmt;
+
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight;
 

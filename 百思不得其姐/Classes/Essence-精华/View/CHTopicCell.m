@@ -12,6 +12,8 @@
 #import "CHTopicPictureView.h"
 #import "CHTopicVoiceView.h"
 #import "CHTopicVideoView.h"
+#import "CHUser.h"
+#import "CHComment.h"
 
 @interface CHTopicCell()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -30,6 +32,8 @@
 @property (nonatomic, weak) CHTopicVoiceView *voiceView;
 
 @property (nonatomic, weak) CHTopicVideoView *videoView;
+@property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
 @end
 
 @implementation CHTopicCell
@@ -119,6 +123,14 @@
         self.voiceView.hidden = YES;
         self.videoView.hidden = YES;
     }
+    
+    CHComment *cmt = [topic.top_cmt firstObject];
+    if (cmt) {
+        self.topCmtView.hidden = NO;
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+    }else {
+        self.topCmtView.hidden = YES;
+    }
         
     
     
@@ -138,9 +150,9 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    static CGFloat margin = 10;
     
-    frame.origin.x = margin;
+    
+    frame.origin.x = CHTopicCellMargin;
     frame.size.width -= 2 *CHTopicCellMargin;
     frame.size.height -= CHTopicCellMargin;
     frame.origin.y += CHTopicCellMargin;

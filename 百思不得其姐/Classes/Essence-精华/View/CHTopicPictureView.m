@@ -38,6 +38,9 @@
     self.imageView.userInteractionEnabled = YES;
     [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPicture)]];
 }
+- (IBAction)lookBig:(id)sender {
+    [self showPicture];
+}
      
 - (void)showPicture
      {

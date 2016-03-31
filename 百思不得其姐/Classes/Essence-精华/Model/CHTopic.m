@@ -7,7 +7,8 @@
 //
 
 #import "CHTopic.h"
-
+#import "CHUser.h"
+#import "CHComment.h"
 
 @implementation CHTopic
 
@@ -24,6 +25,11 @@
              @"large_image" : @"image1",
              @"middle_image" : @"image2",
              };
+}
+
++ (NSDictionary *)objectClassInArray
+{
+    return @{@"top_cmt" : @"CHComment"};
 }
 
 - (NSString *)create_time
@@ -85,7 +91,7 @@
             CGFloat pictureX = CHTopicCellMargin;
             CGFloat pictyreY = CHTopicCellTextY + textH + CHTopicCellMargin;
             _pictureF = CGRectMake(pictureX, pictyreY, pictureW, pictureH);
-            _cellHeight += pictureH +CHTopicCellMargin;
+            _cellHeight += pictureH +CHTopicCellMargin ;
             
         }else if (self.type == CHTopicTypeVoice){
             CGFloat voiceX = CHTopicCellMargin;
@@ -107,6 +113,14 @@
             _cellHeight += videoH + CHTopicCellMargin;
 
             
+        }
+        
+        CHComment *cmt = [self.top_cmt firstObject];
+        if (cmt) {
+            NSString *content = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+            
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13]} context:nil].size.height;
+            _cellHeight += CHTopicCellTopCmtTitleH + contentH + 20 ;
         }
         
        // _cellHeight += CHTopicCellBottomBarH + CHTopicCellMargin;

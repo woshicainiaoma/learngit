@@ -22,3 +22,10 @@ UIKIT_EXTERN CGFloat const CHTopicCellBottomBarH;
 UIKIT_EXTERN CGFloat const CHTopicCellPictureMaxH;
 
 UIKIT_EXTERN CGFloat const CHTopicCellPictureBreakH;
+
+
+UIKIT_EXTERN NSString * const CHUserSexMale;
+UIKIT_EXTERN NSString * const CHUserSexFemale;
+
+
+UIKIT_EXTERN CGFloat const CHTopicCellTopCmtTitleH;

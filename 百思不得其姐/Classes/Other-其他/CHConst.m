@@ -14,3 +14,9 @@ CGFloat const CHTopicCellBottomBarH = 44;
 CGFloat const CHTopicCellPictureMaxH = 1000;
 
 CGFloat const CHTopicCellPictureBreakH = 250;
+
+NSString * const CHUserSexMale = @"m";
+NSString * const CHUserSexFemale = @"f";
+
+
+CGFloat const CHTopicCellTopCmtTitleH = 20;
