@@ -16,5 +16,7 @@
 
 @property (nonatomic, assign) NSInteger like_count;
 
+@property (nonatomic, copy) NSString *voiceuri;
+
 @property (nonatomic, strong) CHUser *user;
 @end

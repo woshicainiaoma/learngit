@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CHComment;
 
 @interface CHTopic : NSObject
 
-
+@property (nonatomic, copy) NSString *ID;
 
 @property (nonatomic, copy) NSString *name;
 
@@ -50,7 +51,7 @@
 
 @property (nonatomic, assign) CGFloat pictureProgress;
 
-@property (nonatomic, strong) NSArray *top_cmt;
+@property (nonatomic, strong) CHComment *top_cmt;
 
 
 @property (nonatomic, assign, readonly) CGFloat cellHeight;

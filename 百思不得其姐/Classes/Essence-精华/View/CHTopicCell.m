@@ -124,10 +124,10 @@
         self.videoView.hidden = YES;
     }
     
-    CHComment *cmt = [topic.top_cmt firstObject];
-    if (cmt) {
+    //CHComment *cmt = [topic.top_cmt firstObject];
+    if (topic.top_cmt) {
         self.topCmtView.hidden = NO;
-        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", topic.top_cmt.user.username, topic.top_cmt.content];
     }else {
         self.topCmtView.hidden = YES;
     }
@@ -160,7 +160,10 @@
     [super setFrame:frame];
 }
 
-
++ (instancetype)cell
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+}
 
 
 

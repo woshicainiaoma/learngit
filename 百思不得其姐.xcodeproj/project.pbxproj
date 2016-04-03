@@ -15,6 +15,11 @@
 		180D96801CA16BFB0008BB19 /* NSDate+CHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 180D967F1CA16BFB0008BB19 /* NSDate+CHExtension.m */; settings = {ASSET_TAGS = (); }; };
 		1816DACC1CAD28CB00354492 /* CHUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816DACB1CAD28CB00354492 /* CHUser.m */; settings = {ASSET_TAGS = (); }; };
 		1816DACF1CAD297400354492 /* CHComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816DACE1CAD297400354492 /* CHComment.m */; settings = {ASSET_TAGS = (); }; };
+		1816DAD31CAD390600354492 /* CHCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816DAD11CAD390600354492 /* CHCommentViewController.m */; settings = {ASSET_TAGS = (); }; };
+		1816DAD41CAD390600354492 /* CHCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1816DAD21CAD390600354492 /* CHCommentViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		1816DAD71CB0C3D200354492 /* CHCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816DAD61CB0C3D200354492 /* CHCommentHeaderView.m */; settings = {ASSET_TAGS = (); }; };
+		1816DADB1CB0C6DA00354492 /* CHCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1816DAD91CB0C6DA00354492 /* CHCommentCell.m */; settings = {ASSET_TAGS = (); }; };
+		1816DADC1CB0C6DA00354492 /* CHCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1816DADA1CB0C6DA00354492 /* CHCommentCell.xib */; settings = {ASSET_TAGS = (); }; };
 		182F5D6A1C76E7F50058A9B6 /* CHFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182F5D681C76E7F50058A9B6 /* CHFriendTrendsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		182F5D6B1C76E7F50058A9B6 /* CHFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182F5D691C76E7F50058A9B6 /* CHFriendTrendsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		185B364C1CA172A4003AC929 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185B36471CA172A4003AC929 /* DACircularProgressView.m */; settings = {ASSET_TAGS = (); }; };
@@ -134,6 +139,14 @@
 		1816DACB1CAD28CB00354492 /* CHUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUser.m; sourceTree = "<group>"; };
 		1816DACD1CAD297400354492 /* CHComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHComment.h; sourceTree = "<group>"; };
 		1816DACE1CAD297400354492 /* CHComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHComment.m; sourceTree = "<group>"; };
+		1816DAD01CAD390600354492 /* CHCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCommentViewController.h; sourceTree = "<group>"; };
+		1816DAD11CAD390600354492 /* CHCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentViewController.m; sourceTree = "<group>"; };
+		1816DAD21CAD390600354492 /* CHCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHCommentViewController.xib; sourceTree = "<group>"; };
+		1816DAD51CB0C3D200354492 /* CHCommentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCommentHeaderView.h; sourceTree = "<group>"; };
+		1816DAD61CB0C3D200354492 /* CHCommentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentHeaderView.m; sourceTree = "<group>"; };
+		1816DAD81CB0C6DA00354492 /* CHCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCommentCell.h; sourceTree = "<group>"; };
+		1816DAD91CB0C6DA00354492 /* CHCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCommentCell.m; sourceTree = "<group>"; };
+		1816DADA1CB0C6DA00354492 /* CHCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHCommentCell.xib; sourceTree = "<group>"; };
 		182F5D671C76E7F50058A9B6 /* CHFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFriendTrendsViewController.h; sourceTree = "<group>"; };
 		182F5D681C76E7F50058A9B6 /* CHFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFriendTrendsViewController.m; sourceTree = "<group>"; };
 		182F5D691C76E7F50058A9B6 /* CHFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHFriendTrendsViewController.xib; sourceTree = "<group>"; };
@@ -433,6 +446,9 @@
 				185B36531CA25754003AC929 /* CHShowPictureViewController.h */,
 				185B36541CA25754003AC929 /* CHShowPictureViewController.m */,
 				185B36551CA25754003AC929 /* CHShowPictureViewController.xib */,
+				1816DAD01CAD390600354492 /* CHCommentViewController.h */,
+				1816DAD11CAD390600354492 /* CHCommentViewController.m */,
+				1816DAD21CAD390600354492 /* CHCommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -472,6 +488,11 @@
 				18EADD8E1CA582BA00B51AAE /* CHTopicVideoView.h */,
 				18EADD8F1CA582BA00B51AAE /* CHTopicVideoView.m */,
 				18EADD911CA582F000B51AAE /* CHTopicVideoView.xib */,
+				1816DAD51CB0C3D200354492 /* CHCommentHeaderView.h */,
+				1816DAD61CB0C3D200354492 /* CHCommentHeaderView.m */,
+				1816DAD81CB0C6DA00354492 /* CHCommentCell.h */,
+				1816DAD91CB0C6DA00354492 /* CHCommentCell.m */,
+				1816DADA1CB0C6DA00354492 /* CHCommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -948,6 +969,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18A1F3F41C7B554500FD4BB9 /* CHRecommendTagCell.xib in Resources */,
+				1816DAD41CAD390600354492 /* CHCommentViewController.xib in Resources */,
 				18EADD921CA582F000B51AAE /* CHTopicVideoView.xib in Resources */,
 				182F5D6B1C76E7F50058A9B6 /* CHFriendTrendsViewController.xib in Resources */,
 				18A1F3361C7ADD6100FD4BB9 /* CHRecommendUserCell.xib in Resources */,
@@ -958,6 +980,7 @@
 				185B36571CA25754003AC929 /* CHShowPictureViewController.xib in Resources */,
 				18A1F32E1C7ABD4800FD4BB9 /* CHRecommendCategoryCell.xib in Resources */,
 				18A1F40A1C7D9E6400FD4BB9 /* CHPushGuideView.xib in Resources */,
+				1816DADC1CB0C6DA00354492 /* CHCommentCell.xib in Resources */,
 				185B374B1CA56C58003AC929 /* CHSPublishViewController.xib in Resources */,
 				189A3FC41C75E65600666E11 /* Assets.xcassets in Resources */,
 				18A1F3261C7ABA0A00FD4BB9 /* CHRecommendViewController.xib in Resources */,
@@ -1057,6 +1080,7 @@
 				18A1F2421C78976F00FD4BB9 /* SDWebImagePrefetcher.m in Sources */,
 				18A1F2861C7898DD00FD4BB9 /* MJRefreshGifHeader.m in Sources */,
 				18A1F31E1C78990400FD4BB9 /* NSObject+MJCoding.m in Sources */,
+				1816DAD71CB0C3D200354492 /* CHCommentHeaderView.m in Sources */,
 				18A1F2481C78976F00FD4BB9 /* UIImageView+WebCache.m in Sources */,
 				18A1F2821C7898DD00FD4BB9 /* MJRefreshAutoStateFooter.m in Sources */,
 				18A1F32D1C7ABD4800FD4BB9 /* CHRecommendCategoryCell.m in Sources */,
@@ -1086,12 +1110,14 @@
 				18A1F23F1C78976F00FD4BB9 /* SDWebImageDownloader.m in Sources */,
 				180D962D1C9BBB690008BB19 /* CHTopicCell.m in Sources */,
 				18A1F3251C7ABA0A00FD4BB9 /* CHRecommendViewController.m in Sources */,
+				1816DAD31CAD390600354492 /* CHCommentViewController.m in Sources */,
 				189A3FC21C75E65600666E11 /* ______.xcdatamodeld in Sources */,
 				185B364C1CA172A4003AC929 /* DACircularProgressView.m in Sources */,
 				18A1F27F1C7898DD00FD4BB9 /* MJRefreshHeader.m in Sources */,
 				18A1F2811C7898DD00FD4BB9 /* MJRefreshAutoNormalFooter.m in Sources */,
 				18A1F2381C78976F00FD4BB9 /* AFURLResponseSerialization.m in Sources */,
 				18A1F31C1C78990400FD4BB9 /* MJPropertyType.m in Sources */,
+				1816DADB1CB0C6DA00354492 /* CHCommentCell.m in Sources */,
 				18A1F2451C78976F00FD4BB9 /* UIImage+MultiFormat.m in Sources */,
 				1816DACF1CAD297400354492 /* CHComment.m in Sources */,
 				185B36521CA178B7003AC929 /* CHProgressView.m in Sources */,

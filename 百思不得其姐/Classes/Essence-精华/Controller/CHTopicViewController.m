@@ -16,6 +16,7 @@
 #import "CHTopic.h"
 #import "CHTopicCell.h"
 #import "CHEssenceViewController.h"
+#import "CHCommentViewController.h"
 @interface CHTopicViewController ()
 
 @property (nonatomic, strong) NSMutableArray *topics;
@@ -202,5 +203,11 @@ static NSString * const CHTopicCellId = @"topic";
     return topic.cellHeight;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CHCommentViewController *commentVc = [[CHCommentViewController alloc] init];
+    commentVc.topic = self.topics[indexPath.row];
+    [self.navigationController pushViewController:commentVc animated:YES];
+}
 
 @end
