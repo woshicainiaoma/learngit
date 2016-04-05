@@ -41,6 +41,8 @@
 {
     [super layoutSubviews];
     
+    static BOOL added = NO;
+    
     CGFloat width = self.width;
     CGFloat height = self.height;
     
@@ -56,7 +58,7 @@
     CGFloat buttonW = width / 5;
     CGFloat buttonH = height;
     NSInteger index = 0;
-    for (UIView *button in self.subviews) {
+    for (UIControl *button in self.subviews) {
         //        if (![button isKindOfClass:NSClassFromString(@"UITabBarButton")]) continue;
         if (![button isKindOfClass:[UIControl class]] || button == self.publishButton) continue;
         
@@ -66,10 +68,19 @@
         
         // 增加索引
         index++;
+        
+        if (added == NO) {
+            [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+
+        }
     }
+    added = YES;
 }
 
-
+- (void)buttonClick
+{
+   [CHNoteCenter postNotificationName:CHTabBarDidSelectNotification object:nil userInfo:nil];
+}
 
 
 

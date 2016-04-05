@@ -6,8 +6,8 @@
 //  Copyright © 2016年 陈欢. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface CHNewViewController : UIViewController
+#import "CHNewViewController.h"
+#import "CHEssenceViewController.h"
+@interface CHNewViewController : CHEssenceViewController
 
 @end

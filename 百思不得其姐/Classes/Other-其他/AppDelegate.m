@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "CHTabBarViewController.h"
 #import "CHPushGuideView.h"
-#import "CHTopWindow.h"
 #import "CHTopWindowViewController.h"
 @interface AppDelegate ()
 

@@ -9,6 +9,8 @@
 #import "CHSPublishViewController.h"
 #import "CHVerticalButton.h"
 #import <POP.h>
+#import "CHPostWordViewController.h"
+#import "CHNavigationController.h"
 
 
 @interface CHSPublishViewController ()
@@ -35,6 +37,10 @@
     CGFloat xMargin = (CHScreenW - 2 * buttonStartX - maxCols * buttonW) / (maxCols - 1);
     for (int i = 0; i<images.count; i++) {
         CHVerticalButton *button = [[CHVerticalButton alloc] init];
+        button.tag = i;
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+
         // 设置内容
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitle:titles[i] forState:UIControlStateNormal];
@@ -60,7 +66,6 @@
         [button pop_addAnimation:anim forKey:nil];
         
         
-        [self.view addSubview:button];
     }
     UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
     [self.view addSubview:sloganView];
@@ -93,8 +98,14 @@
     [self cancelWithCompletionBlock:^{
         if (button.tag == 0) {
             CHLog(@"发视频");
-        } else if (button.tag == 1) {
-            CHLog(@"发图片");
+        } else if (button.tag == 2) {
+            
+            CHPostWordViewController *postWord = [[CHPostWordViewController alloc] init];
+            CHNavigationController *nav = [[CHNavigationController alloc] initWithRootViewController:postWord];
+            
+            UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+            [root presentViewController:nav animated:YES completion:nil];
+            
         }
     }];
 }
@@ -112,7 +123,7 @@
         
         
         POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
-        CGFloat centerY = subview.centerY + CHScreenH;
+        CGFloat centerY = subview.centerY + CHScreenH ;
         
         anim.toValue = [NSValue valueWithCGPoint:CGPointMake(subview.centerX, centerY)];
         anim.beginTime = CACurrentMediaTime() + (i - beginIndex) * 0.1;
@@ -130,5 +141,9 @@
     }
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self cancelWithCompletionBlock:nil];
+}
 
 @end

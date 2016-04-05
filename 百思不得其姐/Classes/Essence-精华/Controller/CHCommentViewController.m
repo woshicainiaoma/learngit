@@ -27,9 +27,25 @@ static NSString * const CHCommentId = @"comment";
 @property (nonatomic, strong) NSMutableArray *latestComments;
 
 @property (nonatomic, strong) CHComment *save_top_cmt;
+
+@property (nonatomic, assign) NSInteger page;
+
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 @implementation CHCommentViewController
+
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+        
+    }
+    return _manager;
+}
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,28 +60,91 @@ static NSString * const CHCommentId = @"comment";
 {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
     [self.tableView.mj_header beginRefreshing];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    
+    self.tableView.mj_footer.hidden = YES;
 }
 
 - (void)loadNewComments
 {
+    
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"dataList";
     params[@"c"] = @"comment";
     params[@"data_id"] = self.topic.ID;
     params[@"hot"] = @"1";
     
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            [self.tableView.mj_header endRefreshing];
+            return;
+        }
+        
+        
         self.hotComments = [CHComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
         self.latestComments = [CHComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
+        self.page = 1;
+        
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
+        
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) {
+            self.tableView.mj_footer.hidden =YES;
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self.tableView.mj_header endRefreshing];
 
+    }];
+}
+
+- (void)loadMoreComments
+{
+    
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    
+    NSInteger page = self.page + 1;
+    
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"page"] = @(page);
+    CHComment *cmt = [self.latestComments lastObject];
+    params[@"lastcid"] = cmt.ID;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *newComment = [CHComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.latestComments addObjectsFromArray:newComment];
+        
+        self.page = page;
+        
+        [self.tableView reloadData];
+        
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latestComments.count >= total) {
+            self.tableView.mj_footer.hidden = YES;
+        } else {
+            
+            [self.tableView.mj_footer endRefreshing];
+        }
+
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
@@ -127,6 +206,8 @@ static NSString * const CHCommentId = @"comment";
         
         [self.topic setValue:@0 forKey:@"cellHeight"];
     }
+    
+    [self.manager invalidateSessionCancelingTasks:YES];
 }
 
 
@@ -143,10 +224,6 @@ static NSString * const CHCommentId = @"comment";
     return [self commentsInSection:indexPath.section][indexPath.row];
 }
 
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -161,6 +238,9 @@ static NSString * const CHCommentId = @"comment";
 {
     NSInteger hotCount = self.hotComments.count;
     NSInteger latesCount = self.latestComments.count;
+    
+    tableView.mj_footer.hidden = (latesCount == 0);
+    
     if (section == 0) {
         return hotCount ? hotCount : latesCount;
     }
@@ -191,9 +271,54 @@ static NSString * const CHCommentId = @"comment";
     return cell;
 }
 
+#pragma mark -MenuItem
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+    
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    
+    if (menu.isMenuVisible) {
+        [menu setMenuVisible:NO animated:YES];
+    }else {
+        CHCommentCell *cell = (CHCommentCell *)[tableView cellForRowAtIndexPath:indexPath];
+        
+        [cell becomeFirstResponder];
+        UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+        UIMenuItem *replay = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(replay:)];
+        UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
 
+        menu.menuItems = @[ding,replay,report];
+        
+        CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
+        [menu setTargetRect:rect inView:cell];
+        [menu setMenuVisible:NO animated:YES];
+        
+    }
+}
+
+- (void)ding:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
+- (void)replay:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
+- (void)report:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s %@", __func__, [self commentInIndexPath:indexPath].content);
+}
 
 
 

@@ -20,3 +20,9 @@ NSString * const CHUserSexFemale = @"f";
 
 
 CGFloat const CHTopicCellTopCmtTitleH = 20;
+
+NSString * const CHTabBarDidSelectNotification = @"CHTabBarDidSelectNotification";
+
+CGFloat const CHTagMargin = 5;
+
+CGFloat const CHTagH = 25;

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHMeViewController : UIViewController
+@interface CHMeViewController : UITableViewController
 
 @end

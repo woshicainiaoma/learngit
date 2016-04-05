@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CHWebViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="6fO-EU-QFs" id="Vuj-kE-nto"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6fO-EU-QFs">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4e-4v-5Eg">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <animations/>
+                    <items>
+                        <barButtonItem title="⬅️" id="IAv-0J-Dtd">
+                            <connections>
+                                <action selector="back:" destination="-1" id="7Hz-rS-KzY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="➡️" id="QeB-hQ-rXT">
+                            <connections>
+                                <action selector="go:" destination="-1" id="Lwm-DC-MK8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MYN-sN-ArX"/>
+                        <barButtonItem systemItem="refresh" id="Ocv-GD-xxe">
+                            <connections>
+                                <action selector="refresh:" destination="-1" id="WfK-2v-gP9"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="N4e-4v-5Eg" secondAttribute="trailing" id="9Np-8p-srd"/>
+                <constraint firstItem="N4e-4v-5Eg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xlx-4u-G8A"/>
+                <constraint firstAttribute="bottom" secondItem="N4e-4v-5Eg" secondAttribute="bottom" id="bWP-tA-e5H"/>
+                <constraint firstItem="N4e-4v-5Eg" firstAttribute="top" secondItem="6fO-EU-QFs" secondAttribute="bottom" id="eNA-nd-r24"/>
+                <constraint firstAttribute="trailing" secondItem="6fO-EU-QFs" secondAttribute="trailing" id="fB8-0U-Gdf"/>
+                <constraint firstItem="6fO-EU-QFs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gSJ-DQ-X0m"/>
+                <constraint firstItem="6fO-EU-QFs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jyo-gc-mro"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

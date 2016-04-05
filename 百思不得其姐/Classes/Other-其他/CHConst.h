@@ -29,3 +29,12 @@ UIKIT_EXTERN NSString * const CHUserSexFemale;
 
 
 UIKIT_EXTERN CGFloat const CHTopicCellTopCmtTitleH;
+
+
+UIKIT_EXTERN NSString * const CHTabBarDidSelectNotification;
+
+
+
+UIKIT_EXTERN CGFloat const CHTagMargin;
+
+UIKIT_EXTERN CGFloat const CHTagH;

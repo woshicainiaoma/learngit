@@ -10,6 +10,8 @@
 @class CHUser;
 @interface CHComment : NSObject
 
+@property (nonatomic, copy) NSString *ID;
+
 @property (nonatomic, assign) NSInteger voicetime;
 
 @property (nonatomic, copy) NSString *content;

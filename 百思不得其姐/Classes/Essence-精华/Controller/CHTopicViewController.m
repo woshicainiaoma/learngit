@@ -17,6 +17,7 @@
 #import "CHTopicCell.h"
 #import "CHEssenceViewController.h"
 #import "CHCommentViewController.h"
+#import "CHNewViewController.h"
 @interface CHTopicViewController ()
 
 @property (nonatomic, strong) NSMutableArray *topics;
@@ -27,6 +28,7 @@
 
 @property (nonatomic, strong) NSDictionary *params;
 
+@property (nonatomic, assign) NSInteger lastSelectedIndex;
 
 @end
 
@@ -64,6 +66,17 @@ static NSString * const CHTopicCellId = @"topic";
     
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CHTopicCell class]) bundle:nil] forCellReuseIdentifier:CHTopicCellId];
+    
+    [CHNoteCenter addObserver:self selector:@selector(tabBarSelect) name:CHTabBarDidSelectNotification object:nil];
+}
+
+- (void)tabBarSelect
+{
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex &&  self.view.isShowingOnKeyWindow) {
+        [self.tableView.mj_header beginRefreshing];
+        
+    }
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
 }
 
 - (void)setupRefresh
@@ -77,6 +90,10 @@ static NSString * const CHTopicCellId = @"topic";
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 
+- (NSString *)a
+{
+    return [self.parentViewController isKindOfClass:[CHNewViewController class]] ? @"newlist" : @"list";
+}
 
 - (void)loadNewTopics
 {
@@ -84,7 +101,7 @@ static NSString * const CHTopicCellId = @"topic";
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
 
@@ -122,7 +139,7 @@ static NSString * const CHTopicCellId = @"topic";
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     NSInteger page = self.page + 1;
